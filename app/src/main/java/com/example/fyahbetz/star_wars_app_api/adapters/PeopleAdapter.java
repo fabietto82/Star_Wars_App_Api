@@ -38,7 +38,7 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.Holder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PeopleAdapter.Holder holder, int position) {
+    public void onBindViewHolder(@NonNull Holder holder, int position) {
 
         Result character = characters.get(position);
 
@@ -54,8 +54,7 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.Holder> {
                 //TODO crea metodo on click dove mi faccio dare l'item cliccato da passare a detail people fragment
                 Log.d("onclick" , "on clicklistener funziona");
 
-                
-
+                ((MainActivity)mActivity).navigateToCharactersDetails(characters.get((Integer) v.getTag()));
 
             }
         });

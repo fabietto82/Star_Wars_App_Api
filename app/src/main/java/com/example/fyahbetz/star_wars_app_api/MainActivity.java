@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements ButtonFragment.On
     public void navigateToCharactersDetails(Result character){
 
         Fragment fragment = DetailsPeopleFragment.newInstance(character);
-        mFragmentManager.beginTransaction()
+        getSupportFragmentManager().beginTransaction()
                 .replace(R.id.btnsFrangment , fragment)
                 .addToBackStack(null)
                 .commit();

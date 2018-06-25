@@ -6,11 +6,15 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.fyahbetz.star_wars_app_api.MainActivity;
 import com.example.fyahbetz.star_wars_app_api.R;
+import com.example.fyahbetz.star_wars_app_api.adapters.PlanetsAdapter;
 import com.example.fyahbetz.star_wars_app_api.models.Planet;
 
 import java.util.List;
@@ -26,6 +30,9 @@ import java.util.List;
 public class PlanetsFragment extends Fragment implements ContractPlanets.PlanetsView {
 
     private ContractPlanets.PlanetsPresenter planetsPresenter;
+
+    private PlanetsAdapter planetsAdapter;
+    private RecyclerView recyclerView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -79,6 +86,12 @@ public class PlanetsFragment extends Fragment implements ContractPlanets.Planets
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        recyclerView = view.findViewById(R.id.recyclerView_Planets);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        setPresenter();
+        planetsPresenter.loadPlanets();
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -114,6 +127,9 @@ public class PlanetsFragment extends Fragment implements ContractPlanets.Planets
 
     @Override
     public void showPlanets(List<Planet> planets) {
+
+        planetsAdapter = new PlanetsAdapter((MainActivity)getActivity() ,planets);
+        recyclerView.setAdapter(planetsAdapter);
 
     }
 

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.fyahbetz.star_wars_app_api.models.Planet;
 import com.example.fyahbetz.star_wars_app_api.models.Result;
 import com.example.fyahbetz.star_wars_app_api.people.DetailsPeopleFragment;
 import com.example.fyahbetz.star_wars_app_api.people.PeopleFragment;
@@ -70,6 +71,12 @@ PlanetsFragment.OnFragmentInteractionListener {
                 .replace(R.id.btnsFrangment , fragment)
                 .addToBackStack(null)
                 .commit();
+
+    }
+
+    public void navigateToPlanetsDetails (Planet planet){
+
+
 
     }
 }

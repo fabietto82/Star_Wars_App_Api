@@ -1,66 +1,53 @@
-package com.example.fyahbetz.star_wars_app_api.people;
+package com.example.fyahbetz.star_wars_app_api.planets;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.fyahbetz.star_wars_app_api.R;
-import com.example.fyahbetz.star_wars_app_api.models.Result;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link DetailsPeopleFragment.OnFragmentInteractionListener} interface
+ * {@link DetailsPlanetFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link DetailsPeopleFragment#newInstance} factory method to
+ * Use the {@link DetailsPlanetFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DetailsPeopleFragment extends Fragment {
+public class DetailsPlanetFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String CHARACTER = "character";
+    private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private TextView mCharName;
-    private TextView mCharHeight;
-    private TextView mCharMass;
-    private TextView mCharHairColor;
-    private TextView mCharSkinColor;
-
-
     // TODO: Rename and change types of parameters
-    private Result mCharacter;
+    private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
 
-    public DetailsPeopleFragment() {
+    public DetailsPlanetFragment() {
         // Required empty public constructor
     }
-
-
 
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param character Parameter 1.
-     * //@param param2 Parameter 2.
-     * @return A new instance of fragment DetailsPeopleFragment.
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment DetailsPlanetFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DetailsPeopleFragment newInstance(Result character) {
-        DetailsPeopleFragment fragment = new DetailsPeopleFragment();
+    public static DetailsPlanetFragment newInstance(String param1, String param2) {
+        DetailsPlanetFragment fragment = new DetailsPlanetFragment();
         Bundle args = new Bundle();
-        args.putParcelable(CHARACTER, character);
-        //args.putString(ARG_PARAM2, param2);
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -69,8 +56,8 @@ public class DetailsPeopleFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mCharacter = getArguments().getParcelable(CHARACTER);
-            //mParam2 = getArguments().getString(ARG_PARAM2);
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
@@ -78,30 +65,7 @@ public class DetailsPeopleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_details_people, container, false);
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        Result character = mCharacter;
-
-        mCharName =(TextView)view.findViewById(R.id.tv_charName);
-        mCharName.setText(character.getName());
-
-        mCharHeight = (TextView) view.findViewById(R.id.tv_height);
-        mCharHeight.setText(mCharacter.getHeight());
-
-        mCharMass = (TextView) view.findViewById(R.id.tv_mass);
-        mCharMass.setText(mCharacter.getMass());
-
-        mCharHairColor = (TextView)view.findViewById(R.id.tv_hair_color);
-        mCharHairColor.setText(mCharacter.getHairColor());
-
-        mCharSkinColor = (TextView)view.findViewById(R.id.tv_skin_color);
-        mCharSkinColor.setText(mCharacter.getSkinColor());
-
+        return inflater.inflate(R.layout.fragment_details_planet, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -87,6 +87,15 @@ public class ButtonFragment extends Fragment {
                 mListener.onBtnPeopleClicked();
             }
         });
+
+
+        mBtnPlanets = (Button) view.findViewById(R.id.btnPlanets);
+        mBtnPlanets.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.onBtnPlanetsClicked();
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event

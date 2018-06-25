@@ -10,9 +10,11 @@ import android.util.Log;
 import com.example.fyahbetz.star_wars_app_api.models.Result;
 import com.example.fyahbetz.star_wars_app_api.people.DetailsPeopleFragment;
 import com.example.fyahbetz.star_wars_app_api.people.PeopleFragment;
+import com.example.fyahbetz.star_wars_app_api.planets.PlanetsFragment;
 
 public class MainActivity extends AppCompatActivity implements ButtonFragment.OnFragmentInteractionListener
-, PeopleFragment.OnFragmentInteractionListener , DetailsPeopleFragment.OnFragmentInteractionListener{
+, PeopleFragment.OnFragmentInteractionListener , DetailsPeopleFragment.OnFragmentInteractionListener ,
+PlanetsFragment.OnFragmentInteractionListener {
 
     private FragmentManager mFragmentManager;
 
@@ -41,6 +43,12 @@ public class MainActivity extends AppCompatActivity implements ButtonFragment.On
 
     @Override
     public void onBtnPlanetsClicked() {
+
+        Log.d("btnPlanets" , "planet button success");
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.btnsFrangment , new PlanetsFragment())
+                .addToBackStack(null)
+                .commit();
 
     }
 

@@ -3,12 +3,16 @@ package com.example.fyahbetz.star_wars_app_api.planets;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.fyahbetz.star_wars_app_api.R;
+import com.example.fyahbetz.star_wars_app_api.models.Planet;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,13 +23,23 @@ import com.example.fyahbetz.star_wars_app_api.R;
  * create an instance of this fragment.
  */
 public class DetailsPlanetFragment extends Fragment {
+
+    private TextView mPlanetName;
+    private TextView mPlanetRotation;
+    private TextView mPlanetOrbital;
+    private TextView mPlanetDiameter;
+    private TextView mPlanetClimate;
+
+
+
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
+    private static final String PLANET = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
+    private Planet mPlanet;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
@@ -38,16 +52,16 @@ public class DetailsPlanetFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     * @param planet Parameter 1.
+     * //@param param2 Parameter 2.
      * @return A new instance of fragment DetailsPlanetFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DetailsPlanetFragment newInstance(String param1, String param2) {
+    public static DetailsPlanetFragment newInstance(Planet planet) {
         DetailsPlanetFragment fragment = new DetailsPlanetFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putParcelable(PLANET, planet);
+        // args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,8 +70,8 @@ public class DetailsPlanetFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            mPlanet = getArguments().getParcelable(PLANET);
+            //mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
@@ -73,6 +87,32 @@ public class DetailsPlanetFragment extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        Planet planet = mPlanet;
+
+        mPlanetName = (TextView) view.findViewById(R.id.tv_planetName);
+        mPlanetName.setText(planet.getName());
+
+        mPlanetRotation = (TextView) view.findViewById(R.id.tv_rotation);
+        mPlanetRotation.setText(planet.getRotationPeriod());
+
+        mPlanetOrbital = (TextView)view.findViewById(R.id.tv_orbital);
+        mPlanetOrbital.setText(planet.getOrbitalPeriod());
+
+        mPlanetDiameter = (TextView)view.findViewById(R.id.tv_diameter);
+        mPlanetDiameter.setText(planet.getDiameter());
+
+        mPlanetClimate = (TextView)view.findViewById(R.id.tv_climate);
+        mPlanetClimate.setText(planet.getClimate());
+
+
+
+
     }
 
     @Override

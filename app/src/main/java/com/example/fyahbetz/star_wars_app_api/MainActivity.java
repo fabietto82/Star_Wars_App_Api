@@ -11,11 +11,12 @@ import com.example.fyahbetz.star_wars_app_api.models.Planet;
 import com.example.fyahbetz.star_wars_app_api.models.Result;
 import com.example.fyahbetz.star_wars_app_api.people.DetailsPeopleFragment;
 import com.example.fyahbetz.star_wars_app_api.people.PeopleFragment;
+import com.example.fyahbetz.star_wars_app_api.planets.DetailsPlanetFragment;
 import com.example.fyahbetz.star_wars_app_api.planets.PlanetsFragment;
 
 public class MainActivity extends AppCompatActivity implements ButtonFragment.OnFragmentInteractionListener
 , PeopleFragment.OnFragmentInteractionListener , DetailsPeopleFragment.OnFragmentInteractionListener ,
-PlanetsFragment.OnFragmentInteractionListener {
+PlanetsFragment.OnFragmentInteractionListener , DetailsPlanetFragment.OnFragmentInteractionListener {
 
     private FragmentManager mFragmentManager;
 
@@ -75,6 +76,11 @@ PlanetsFragment.OnFragmentInteractionListener {
     }
 
     public void navigateToPlanetsDetails (Planet planet){
+        Fragment fragment = DetailsPlanetFragment.newInstance(planet);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.btnsFrangment ,fragment)
+                .addToBackStack(null)
+                .commit();
 
 
 

@@ -1,6 +1,7 @@
 package com.example.fyahbetz.star_wars_app_api.people;
 
 import com.example.fyahbetz.star_wars_app_api.models.PeopleModel;
+import com.example.fyahbetz.star_wars_app_api.models.Result;
 import com.example.fyahbetz.star_wars_app_api.models.Starship;
 import com.example.fyahbetz.star_wars_app_api.network_utils.ApiRetrofit;
 import com.example.fyahbetz.star_wars_app_api.network_utils.RetrofitClientInstance;
@@ -17,7 +18,7 @@ public class PeoplePresenter implements ContractPeople.PeoplePresenter , Contrac
 
     private PeopleModel peopleModel;
 
-    private List<Starship> characters;
+    private List<Result> characters;
 
     @Override
     public void setView(ContractPeople.PeopleView peopleView) {
@@ -57,7 +58,7 @@ public class PeoplePresenter implements ContractPeople.PeoplePresenter , Contrac
     }
 
     @Override
-    public void showCharacters(List<Starship> characters) {
+    public void showCharacters(List<Result> characters) {
 
     }
 }

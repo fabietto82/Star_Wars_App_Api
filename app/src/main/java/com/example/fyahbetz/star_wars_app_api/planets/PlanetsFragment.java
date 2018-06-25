@@ -3,12 +3,17 @@ package com.example.fyahbetz.star_wars_app_api.planets;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.fyahbetz.star_wars_app_api.R;
+import com.example.fyahbetz.star_wars_app_api.models.Planet;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,7 +23,10 @@ import com.example.fyahbetz.star_wars_app_api.R;
  * Use the {@link PlanetsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PlanetsFragment extends Fragment {
+public class PlanetsFragment extends Fragment implements ContractPlanets.PlanetsView {
+
+    private ContractPlanets.PlanetsPresenter planetsPresenter;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -68,6 +76,11 @@ public class PlanetsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_planets, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
+
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
@@ -90,6 +103,18 @@ public class PlanetsFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+
+    @Override
+    public void setPresenter() {
+        planetsPresenter = new PlanetsPresenter();
+        planetsPresenter.setView(this);
+    }
+
+    @Override
+    public void showPlanets(List<Planet> planets) {
+
     }
 
     /**

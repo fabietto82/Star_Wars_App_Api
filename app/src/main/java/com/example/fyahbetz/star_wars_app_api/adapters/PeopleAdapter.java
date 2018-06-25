@@ -20,7 +20,7 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.Holder> {
 
     private Activity mActivity;
 
-    private MainActivity mmActivity;
+
     private List<Result> characters;
 
     public PeopleAdapter(Activity activity, List<Result> characters) {

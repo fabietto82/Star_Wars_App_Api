@@ -1,6 +1,6 @@
 package com.example.fyahbetz.star_wars_app_api.people;
 
-import com.example.fyahbetz.star_wars_app_api.models.Result;
+import com.example.fyahbetz.star_wars_app_api.models.Starship;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public interface ContractPeople {
         // metodo per settare il presenter... lego la view al presenter
         void setPresenter();
 
-        void showCharacters(List<Result> characters);
+        void showCharacters(List<Starship> characters);
 
     }
 

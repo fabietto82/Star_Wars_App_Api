@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import com.example.fyahbetz.star_wars_app_api.MainActivity;
 import com.example.fyahbetz.star_wars_app_api.R;
 import com.example.fyahbetz.star_wars_app_api.adapters.PeopleAdapter;
-import com.example.fyahbetz.star_wars_app_api.models.Result;
+import com.example.fyahbetz.star_wars_app_api.models.Starship;
 
 import java.util.List;
 
@@ -133,7 +133,7 @@ public class PeopleFragment extends Fragment  implements ContractPeople.PeopleVi
 
 
     @Override
-    public void showCharacters(List<Result> characters) {
+    public void showCharacters(List<Starship> characters) {
 
         // implemento il metodo epr caricare i dati che ricevo...
 

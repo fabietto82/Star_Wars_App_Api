@@ -1,6 +1,7 @@
 package com.example.fyahbetz.star_wars_app_api.models;
 
 
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "previous",
         "results"
 })
-public class PeopleModel {
+public class StarshipsModel {
 
     @JsonProperty("count")
     private Integer count;
@@ -28,9 +29,30 @@ public class PeopleModel {
     private Object previous;
     @JsonProperty("results")
     private List<Starship> results = null;
-
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+    /**
+     * No args constructor for use in serialization
+     *
+     */
+    public StarshipsModel() {
+    }
+
+    /**
+     *
+     * @param results
+     * @param previous
+     * @param count
+     * @param next
+     */
+    public StarshipsModel(Integer count, String next, Object previous, List<Starship> results) {
+        super();
+        this.count = count;
+        this.next = next;
+        this.previous = previous;
+        this.results = results;
+    }
 
     @JsonProperty("count")
     public Integer getCount() {
@@ -42,7 +64,7 @@ public class PeopleModel {
         this.count = count;
     }
 
-    public PeopleModel withCount(Integer count) {
+    public StarshipsModel withCount(Integer count) {
         this.count = count;
         return this;
     }
@@ -57,7 +79,7 @@ public class PeopleModel {
         this.next = next;
     }
 
-    public PeopleModel withNext(String next) {
+    public StarshipsModel withNext(String next) {
         this.next = next;
         return this;
     }
@@ -72,7 +94,7 @@ public class PeopleModel {
         this.previous = previous;
     }
 
-    public PeopleModel withPrevious(Object previous) {
+    public StarshipsModel withPrevious(Object previous) {
         this.previous = previous;
         return this;
     }
@@ -87,7 +109,7 @@ public class PeopleModel {
         this.results = results;
     }
 
-    public PeopleModel withResults(List<Starship> results) {
+    public StarshipsModel withResults(List<Starship> results) {
         this.results = results;
         return this;
     }
@@ -102,11 +124,9 @@ public class PeopleModel {
         this.additionalProperties.put(name, value);
     }
 
-    public PeopleModel withAdditionalProperty(String name, Object value) {
+    public StarshipsModel withAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
         return this;
     }
 
 }
-
-

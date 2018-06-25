@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -69,18 +69,18 @@ public class Result implements Parcelable
     private String url;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-    public final static Parcelable.Creator<Result> CREATOR = new Creator<Result>() {
+    public final static Parcelable.Creator<Starship> CREATOR = new Creator<Starship>() {
 
 
         @SuppressWarnings({
                 "unchecked"
         })
-        public Result createFromParcel(Parcel in) {
-            return new Result(in);
+        public Starship createFromParcel(Parcel in) {
+            return new Starship(in);
         }
 
-        public Result[] newArray(int size) {
-            return (new Result[size]);
+        public Starship[] newArray(int size) {
+            return (new Starship[size]);
         }
 
     }

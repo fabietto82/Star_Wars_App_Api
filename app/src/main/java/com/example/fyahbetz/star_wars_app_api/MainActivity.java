@@ -8,15 +8,17 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.fyahbetz.star_wars_app_api.models.Planet;
-import com.example.fyahbetz.star_wars_app_api.models.Result;
+import com.example.fyahbetz.star_wars_app_api.models.Starship;
 import com.example.fyahbetz.star_wars_app_api.people.DetailsPeopleFragment;
 import com.example.fyahbetz.star_wars_app_api.people.PeopleFragment;
 import com.example.fyahbetz.star_wars_app_api.planets.DetailsPlanetFragment;
 import com.example.fyahbetz.star_wars_app_api.planets.PlanetsFragment;
+import com.example.fyahbetz.star_wars_app_api.starships.StarshipFragment;
 
 public class MainActivity extends AppCompatActivity implements ButtonFragment.OnFragmentInteractionListener
 , PeopleFragment.OnFragmentInteractionListener , DetailsPeopleFragment.OnFragmentInteractionListener ,
-PlanetsFragment.OnFragmentInteractionListener , DetailsPlanetFragment.OnFragmentInteractionListener {
+PlanetsFragment.OnFragmentInteractionListener , DetailsPlanetFragment.OnFragmentInteractionListener ,
+StarshipFragment.OnFragmentInteractionListener {
 
     private FragmentManager mFragmentManager;
 
@@ -57,6 +59,11 @@ PlanetsFragment.OnFragmentInteractionListener , DetailsPlanetFragment.OnFragment
     @Override
     public void onBtnStarshipsClicked() {
 
+        Log.d("btn starships" , "starships button clicked");
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.btnsFrangment , new StarshipFragment())
+                .addToBackStack(null)
+                .commit();
     }
 
     //people fragment
@@ -65,7 +72,7 @@ PlanetsFragment.OnFragmentInteractionListener , DetailsPlanetFragment.OnFragment
 
     }
 
-    public void navigateToCharactersDetails(Result character){
+    public void navigateToCharactersDetails(Starship character){
 
         Fragment fragment = DetailsPeopleFragment.newInstance(character);
         getSupportFragmentManager().beginTransaction()

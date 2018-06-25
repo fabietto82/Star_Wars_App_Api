@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.fyahbetz.star_wars_app_api.MainActivity;
 import com.example.fyahbetz.star_wars_app_api.R;
-import com.example.fyahbetz.star_wars_app_api.models.Result;
+import com.example.fyahbetz.star_wars_app_api.models.Starship;
 
 import java.util.List;
 
@@ -21,9 +21,9 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.Holder> {
     private Activity mActivity;
 
 
-    private List<Result> characters;
+    private List<Starship> characters;
 
-    public PeopleAdapter(Activity activity, List<Result> characters) {
+    public PeopleAdapter(Activity activity, List<Starship> characters) {
         this.mActivity = activity;
         this.characters = characters;
     }
@@ -40,7 +40,7 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.Holder> {
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
 
-        Result character = characters.get(position);
+        Starship character = characters.get(position);
 
         holder.textViewCharName.setText(character.getName());
 

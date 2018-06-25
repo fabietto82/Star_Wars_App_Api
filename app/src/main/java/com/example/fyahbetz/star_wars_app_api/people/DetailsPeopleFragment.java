@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.fyahbetz.star_wars_app_api.R;
-import com.example.fyahbetz.star_wars_app_api.models.Result;
+import com.example.fyahbetz.star_wars_app_api.models.Starship;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,7 +36,7 @@ public class DetailsPeopleFragment extends Fragment {
 
 
     // TODO: Rename and change types of parameters
-    private Result mCharacter;
+    private Starship mCharacter;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
@@ -56,7 +56,7 @@ public class DetailsPeopleFragment extends Fragment {
      * @return A new instance of fragment DetailsPeopleFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DetailsPeopleFragment newInstance(Result character) {
+    public static DetailsPeopleFragment newInstance(Starship character) {
         DetailsPeopleFragment fragment = new DetailsPeopleFragment();
         Bundle args = new Bundle();
         args.putParcelable(CHARACTER, character);
@@ -85,7 +85,7 @@ public class DetailsPeopleFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Result character = mCharacter;
+        Starship character = mCharacter;
 
         mCharName =(TextView)view.findViewById(R.id.tv_charName);
         mCharName.setText(character.getName());

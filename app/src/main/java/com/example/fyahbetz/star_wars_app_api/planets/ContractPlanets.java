@@ -10,7 +10,7 @@ public interface ContractPlanets  {
 
         void setPresenter();
 
-        void showPlanets(List<Planet> pl);
+        void showPlanets(List<Planet> planets);
     }
 
     interface PlanetsPresenter {

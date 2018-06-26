@@ -11,7 +11,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PlanetsPresenter implements ContractPlanets.PlanetsPresenter, ContractPlanets.PlanetsView{
+public class PlanetsPresenter implements ContractPlanets.PlanetsPresenter{
 
     private ContractPlanets.PlanetsView planetsView;
 
@@ -49,13 +49,5 @@ public class PlanetsPresenter implements ContractPlanets.PlanetsPresenter, Contr
 
     }
 
-    @Override
-    public void setPresenter() {
 
-    }
-
-    @Override
-    public void showPlanets(List<Planet> planets) {
-
-    }
 }

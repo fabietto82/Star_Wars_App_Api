@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/people"
+        android:title="@string/string_menu_people"
+        />
+    <item
+        android:id="@+id/planets"
+        android:title="@string/string_menu_planets"
+        />
+    <item
+        android:id="@+id/starships"
+        android:title="@string/string_menu_starships"
+        />
+
+
+</menu>
